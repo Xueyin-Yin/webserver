@@ -20,9 +20,9 @@ class connection_pool {
     public:
         MYSQL *GetConnection();
         bool ReleaseConnection(MYSQL *conn);
-        void DestoryConnection();
+        void DestoryPool();
 
-        static connection_pool *GetInstance(string url, string user, string password, string dataName, int port, unsigned int maxConn);
+        static connection_pool *GetInstance(string url, string user, string password, string dbName, int port, unsigned int maxConn);
         int GetFreeConn();
 
         connection_pool();
@@ -46,7 +46,7 @@ class connection_pool {
         string port;
         string user;
         string password;
-        string dataName;
+        string dbName;
 
 };
 
